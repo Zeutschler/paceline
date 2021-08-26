@@ -7,11 +7,12 @@ suppress any visual output and just return a simple Python-dictionary containing
 **paceline** has no external dependencies and should run on any platform (although not tested for all).
 
 In addition, the word ***"paceline"*** is hereby introduced to the developer community as a nice abbreviation for simple
-"*performance testing*" or "*performance testing*". Especially for those who love performance optimization. So... 
+"*code performance measurement*" and "*performance testing*". Especially for those who love performance optimization ;-) 
+So... 
 > Have you already **pacelined** your code today?
 
 ## Features
-Here are the the things that **paceline** does (hopefully for your pleasure):
+Here are the things that **paceline** does:
 * Measure the runtime of any Python function. If you don't have a function, just wrap your code into a function and measure that. 
 * Show a nice progressbar while executing multiple iterations of your Python function to measure performance.
 * Evaluate some basic statistics over the runtime variance of your Python function.

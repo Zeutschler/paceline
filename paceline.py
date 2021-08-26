@@ -51,16 +51,16 @@ def paceline(function=None, *, iterations: int = 1, skip: bool = False, progress
 
     def decorator_paceline(function) -> object:
         BOLD = "\033[1m"
-        RED = "\033[31m"  # if you don't like Red, change it...
+        RED = "\033[31m"  # if you don't like Red, change it
         GRAY = "\033[37m"
         RESET = "\033[0m"
+        SYMBOL = "⏱"  # maybe something more fancy & visible: 🦊
 
         @functools.wraps(function)
         def wrapper(*args, **kwargs):
-            # Sorry for the spaghetti code, some refactoring would help.
+            # Sorry for the spaghetti code, time for refactoring...
             if skip | (iterations < 1):
                 return function(*args, **kwargs)
-
 
             r = None
             durations: List[float] = []
@@ -126,11 +126,11 @@ def paceline(function=None, *, iterations: int = 1, skip: bool = False, progress
 
             if not suppress_output:
                 if iterations == 1:
-                    print(f"⏳paceline for {BOLD}{function.__name__}(){RESET} runtime is "
+                    print(f"{SYMBOL}paceline for {BOLD}{function.__name__}(){RESET} runtime is "
                           f"{BOLD}{mean * factor:,.3f}{unit}{RESET},"
                           f" 1x iteration in {BOLD}{mean * factor:,.3f}{unit}{RESET}")
                 else:
-                    print(f"⏳paceline for {BOLD}{function.__name__}(){RESET} runtime is "
+                    print(f"{SYMBOL}paceline for {BOLD}{function.__name__}(){RESET} runtime is "
                           f"{BOLD}{mean * factor:.3f}{unit}"
                           f"{RESET} on avg, {BOLD}{median * factor:.3f}{unit}{RESET} at median, "
                           f"{iterations:,}x iterations in {BOLD}{sum_ * factor_sum:,.3f}{unit_sum}{RESET}")
