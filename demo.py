@@ -25,7 +25,6 @@ def some_other_function(loops: int = 1000):
 # 2. If a function has defined the paceline decorator, like some_function(...)
 #    then all calls to that function will get measured and evaluated.
 some_function()
-some_function()
 
 # 3. If no decorator is defined, you to wrap your function into the paceline
 #    as shown below. From thereon all calls to the function will get measured...

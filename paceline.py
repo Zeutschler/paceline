@@ -39,14 +39,14 @@ def paceline(function=None, *, iterations: int = 1, skip: bool = False, progress
         but a tuple containing the function result and a dictionary containing the paceline results will be shown.
         Default value is True.
     """
-    def update_progressbar(current, total, bar_length=90, message: str = "paceline: "):
+    def update_progressbar(current, total, bar_length=90, message: str = "pacelining "):
         bar_length = bar_length - len(message)
         if bar_length < 20:
             bar_length = 20
         percent = float(current) / float(total)
         bar = '#' * int(percent * bar_length)
         space = '_' * (bar_length - len(bar))
-        sys.stdout.write(f"\r{message}[{bar}{space}] {percent:.2%}")
+        sys.stdout.write(f"\r{message}[{bar}{space}] {percent:.0%}")
         sys.stdout.flush()
 
     def decorator_paceline(function) -> object:
@@ -66,7 +66,7 @@ def paceline(function=None, *, iterations: int = 1, skip: bool = False, progress
             durations: List[float] = []
             duration_cum: float = 0.0
             last_progress_update: float = 0.0
-            progress_message = f"⏱Measuring {BOLD}{function.__name__}(){RESET} "
+            progress_message = f"⏱pacelining {BOLD}{function.__name__}(){RESET} "
             if (not suppress_output) & progressbar:
                 update_progressbar(0, iterations, message=progress_message)
 
