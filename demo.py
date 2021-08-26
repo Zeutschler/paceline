@@ -28,7 +28,7 @@ some_function()
 
 # 3. If no decorator is defined, you to wrap your function into the paceline
 #    as shown below. From thereon all calls to the function will get measured...
-some_other_function = paceline(some_other_function, iterations=1000)
+some_other_function = paceline(some_other_function, iterations=100)
 print(f"\nresult = {some_other_function()}")
 
 # 4. ...until you (optionally) unwrap the function from the decorator again, like this:
@@ -41,7 +41,7 @@ print(f"\nresult (paceline decorator removed again) = {some_other_function()}")
 #    of the function result(s) and the performance metrics contained in a simple
 #    dictionary, suitable for any kind of further processing.
 some_other_function = paceline(function=some_other_function, iterations=100, return_metrics=True, suppress_output=True)
-print("\nPlease wait, paceline measurement with console output is executed...")
+print("\nPlease wait, pacelining WITHOUT console output is executed...")
 result, metrics = some_other_function()  # here we get the results and the metrics
 print(f"result = {result}")
 pprint.pprint(metrics)

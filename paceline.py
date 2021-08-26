@@ -128,11 +128,11 @@ def paceline(function=None, *, iterations: int = 1, skip: bool = False, progress
 
             if not suppress_output:
                 if iterations == 1:
-                    print(f"{SYMBOL}paceline for {BOLD}{function.__name__}(){RESET} runtime is "
+                    print(f"{SYMBOL}paceline for {BOLD}{function.__name__}(){RESET} is "
                           f"{BOLD}{mean * factor:,.3f}{unit}{RESET},"
                           f" 1x iteration in {BOLD}{mean * factor:,.3f}{unit}{RESET}")
                 else:
-                    print(f"{SYMBOL}paceline for {BOLD}{function.__name__}(){RESET} runtime is "
+                    print(f"{SYMBOL}paceline for {BOLD}{function.__name__}(){RESET} is "
                           f"{BOLD}{mean * factor:.3f}{unit}"
                           f"{RESET} on avg, {BOLD}{median * factor:.3f}{unit}{RESET} at median, "
                           f"{iterations:,}x iterations in {BOLD}{sum_ * factor_sum:,.3f}{unit_sum}{RESET}")
