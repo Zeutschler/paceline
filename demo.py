@@ -28,7 +28,7 @@ some_function()
 
 # 3. If no decorator is defined, you to wrap your function into the paceline
 #    as shown below. From thereon all calls to the function will get measured...
-some_other_function = paceline(some_other_function)
+some_other_function = paceline(some_other_function, iterations=1000)
 print(f"\nresult = {some_other_function()}")
 
 # 4. ...until you (optionally) unwrap the function from the decorator again, like this:
@@ -46,4 +46,4 @@ result, metrics = some_other_function()  # here we get the results and the metri
 print(f"result = {result}")
 pprint.pprint(metrics)
 
-print("\nThanks for testing or using...")
+print("\nThanks for testing, maybe using...")

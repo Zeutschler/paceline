@@ -91,6 +91,7 @@ def paceline(function=None, *, iterations: int = 1, skip: bool = False, progress
 
             min_, max_, sum_, mean = 0.0, 0.0, 0.0, 0.0
             median, q1, q3, iqr = 0.0, 0.0, 0.0, 0.0
+            duration = 0.0
             if iterations == 1:
                 median = durations[0]
                 sum_ = median
@@ -101,6 +102,7 @@ def paceline(function=None, *, iterations: int = 1, skip: bool = False, progress
                 max_ = max(durations)
                 sum_ = sum(durations)
                 mean = sum_/len(durations)
+                duration = mean
 
                 # median & quartiles
                 n = len(durations)
@@ -180,8 +182,13 @@ def paceline(function=None, *, iterations: int = 1, skip: bool = False, progress
                             print(row + f"| {caption}")
 
             if return_metrics:
+                # round to nano-seconds
+                duration = round(duration, 9)
+                mean, min_, max_, sum_ = round(mean, 9), round(min_, 9), round(max_, 9), round(sum_, 9)
+                median, q1, q3, iqr = round(median, 9), round(q1, 9), round(q3, 9), round(iqr, 9)
                 if iterations == 1:
-                    metrics = {"function": function.__name__, "iterations": 1, "uom": "s", "paceline": duration}
+                    metrics = {"function": function.__name__, "iterations": 1, "uom": "s",
+                               "paceline": duration, "min": min_, "max": max_, "total-time": sum_}
                 else:
                     metrics = {"function": function.__name__, "iterations": iterations, "uom": "s",
                                "paceline": mean, "min": min_, "max": max_, "total-time": sum_,
