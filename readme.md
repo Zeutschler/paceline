@@ -7,7 +7,7 @@ suppress any visual output and just return a simple Python-dictionary containing
 **paceline** has no external dependencies and should run on any platform (although not tested for all).
 
 In addition, the word ***"paceline"*** is hereby introduced to the developer community as a nice abbreviation for simple
-"* performance testing*" or "*performance testing*". Especially for those who love performance optimization. So... 
+"*performance testing*" or "*performance testing*". Especially for those who love performance optimization. So... 
 > Have you already **pacelined** your code today?
 
 ## Features
